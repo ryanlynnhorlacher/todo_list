@@ -1,0 +1,44 @@
+<h1>Your List</h1>
+<%= link_to 'New list item', new_list_item_path %>
+<h2><u>Not started items</u></h2>
+<table style='text-align: left'>
+	<thead> <th>Name</th><th>Description</th><th>Priority</th><th>Status</th></thead>
+	<tbody>
+	<% @list_items_not_started.each do |item| %>
+	<h3> <tr> <td>| <%= item.name %> </h3>
+		<td> <%= item.description %> </td>
+		<td> <%= item.priority %> </td>
+		<td> <%= item.status %> </td></tr>
+		<tr> <td></td><td></td><td> <%= button_to 'Edit list item', edit_list_item_path(item), method: :get %> </td>
+		<td> <%= button_to 'Delete list item', list_item_path(item), method: :delete %> </td></tr>
+	<% end %>
+	</tbody>
+</table>
+<h2><u>In-progress items</u></h2>
+<table style='text-align: left'>
+	<thead> <th>Name</th><th>Description</th><th>Priority</th><th>Status</th></thead>
+	<tbody>
+	<% @list_items_in_progress.each do |item| %>
+		<h3> <tr> <td>| <%= item.name %> </h3>
+		<td> <%= item.description %> </td>
+		<td> <%= item.priority %> </td>
+		<td> <%= item.status %> </td></tr>
+		<tr> <td></td><td></td><td> <%= button_to 'Edit list item', edit_list_item_path(item), method: :get %> </td>
+		<td> <%= button_to 'Delete list item', list_item_path(item), method: :delete %> </td></tr>
+		<% end %>
+	</tbody>
+</table>
+<h2><u>Completed items</u></h2>
+<table style='text-align: left'>
+	<thead> <th>Name</th><th>Description</th><th>Priority</th><th>Status</th></thead>
+	<tbody>
+	<% @list_items_complete.each do |item| %>
+		<h3> <tr> <td>| <%= item.name %> </h3>
+		<td> <%= item.description %> </td>
+		<td> <%= item.priority %> </td>
+		<td> <%= item.status %> </td></tr>
+		<tr> <td></td><td></td><td> <%= button_to 'Edit list item', edit_list_item_path(item), method: :get %> </td>
+		<td> <%= button_to 'Delete list item', list_item_path(item), method: :delete %> </td></tr>
+	<% end %>
+	</tbody>
+</table>
